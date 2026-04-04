@@ -17,6 +17,17 @@ const AboutSection = () => {
         </h2>
         <div className="w-16 h-1 bg-primary mb-12 rounded-full" />
 
+        <div className="flex flex-col items-center mb-10">
+          <div className="relative group">
+            <div className="absolute -inset-1.5 rounded-full bg-primary/20 blur-lg group-hover:bg-primary/40 transition-all duration-500" />
+            <img
+              src={profilePhoto}
+              alt="Islam Mohamed Abdelbadie"
+              className="relative w-44 h-44 md:w-52 md:h-52 rounded-full object-cover border-2 border-primary/40 shadow-xl"
+            />
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-6 text-foreground/80 leading-relaxed">
             <p>
