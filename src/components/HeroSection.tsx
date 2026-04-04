@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
   return (
@@ -8,7 +9,8 @@ const HeroSection = () => {
                           repeating-linear-gradient(90deg, hsl(217 91% 60%) 0px, transparent 1px, transparent 30px)`
       }} />
 
-      <div className="relative z-10 text-center max-w-3xl mx-auto">
+      <div className="relative z-10 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16 max-w-5xl mx-auto">
+        <div className="text-center md:text-left flex-1">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-8 font-mono text-sm text-muted-foreground">
           <span className="text-primary">&gt;_</span>
           <span>$ whoami</span>
