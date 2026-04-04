@@ -3,10 +3,9 @@ import { ChevronDown } from "lucide-react";
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
-      {/* Matrix-like background grid */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `repeating-linear-gradient(0deg, hsl(145 80% 42%) 0px, transparent 1px, transparent 30px),
-                          repeating-linear-gradient(90deg, hsl(145 80% 42%) 0px, transparent 1px, transparent 30px)`
+        backgroundImage: `repeating-linear-gradient(0deg, hsl(217 91% 60%) 0px, transparent 1px, transparent 30px),
+                          repeating-linear-gradient(90deg, hsl(217 91% 60%) 0px, transparent 1px, transparent 30px)`
       }} />
 
       <div className="relative z-10 text-center max-w-3xl mx-auto">

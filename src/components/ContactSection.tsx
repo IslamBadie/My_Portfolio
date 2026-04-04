@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Linkedin, Github, Send } from "lucide-react";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -24,15 +24,15 @@ const ContactSection = () => {
         </p>
 
         <div className="grid md:grid-cols-3 gap-4 mb-12">
-          <a href="mailto:islam@example.com" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
+          <a href="mailto:islambadea124@gmail.com" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
             <Mail className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">Email Me</span>
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
+          <a href="https://github.com/IslamBadie" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
             <Github className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">GitHub</span>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
+          <a href="https://www.linkedin.com/in/islam-abdelbadie" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
             <Linkedin className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">LinkedIn</span>
           </a>

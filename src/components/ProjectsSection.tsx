@@ -1,4 +1,5 @@
 import { Film, Brain, Shield, Search } from "lucide-react";
+import projectScreenshot from "@/assets/project-screenshot.png";
 
 const projects = [
   {
@@ -56,11 +57,12 @@ const ProjectsSection = () => {
                 }`}
               >
                 {project.featured && (
-                  <div className="w-full h-48 rounded-md bg-secondary border border-border mb-6 flex items-center justify-center overflow-hidden">
-                    <div className="text-center">
-                      <Film className="w-12 h-12 text-primary mx-auto mb-3 opacity-60" />
-                      <span className="font-mono text-sm text-muted-foreground">Project Screenshot</span>
-                    </div>
+                  <div className="w-full h-64 md:h-80 rounded-md border border-border mb-6 overflow-hidden">
+                    <img
+                      src={projectScreenshot}
+                      alt="Movie Application Screenshot"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 )}
                 <div className="flex items-start gap-4">
