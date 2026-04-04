@@ -19,9 +19,14 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-6 text-foreground/80 leading-relaxed">
             <p>
-              I'm a <span className="text-primary font-semibold">Software Engineer</span> and{" "}
+              I'm <span className="text-primary font-semibold">Islam Mohamed Abdelbadie</span>, a{" "}
+              <span className="text-primary font-semibold">Software Engineer</span> and{" "}
               <span className="text-primary font-semibold">Flutter Developer</span> with a passion for building
               beautiful, performant mobile applications with clean, maintainable code.
+            </p>
+            <p>
+              I'm currently studying <span className="text-primary">Computer Science and Artificial Intelligence</span> at{" "}
+              <span className="text-primary font-semibold">Arab Open University</span>.
             </p>
             <p>
               My approach centers on{" "}
