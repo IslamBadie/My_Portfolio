@@ -1,4 +1,5 @@
 import { Code2, Smartphone, Brain, Layers } from "lucide-react";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const stats = [
   { icon: Code2, value: "Flutter", label: "Primary Stack" },
