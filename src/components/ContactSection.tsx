@@ -32,7 +32,7 @@ const ContactSection = () => {
             <Github className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">GitHub</span>
           </a>
-          <a href="https://www.linkedin.com/in/islam-abdelbadie" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
+          <a href="https://www.linkedin.com/in/islam-abdelbadie/" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
             <Linkedin className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">LinkedIn</span>
           </a>
