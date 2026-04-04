@@ -1,5 +1,20 @@
 import { Code2, Smartphone, Brain, Layers } from "lucide-react";
 
+const stats = [
+  { icon: Code2, value: "Flutter", label: "Primary Stack" },
+  { icon: Smartphone, value: "Mobile", label: "App Development" },
+  { icon: Brain, value: "ML/NLP", label: "AI Exploration" },
+  { icon: Layers, value: "Clean", label: "Architecture" },
+];
+
+const AboutSection = () => {
+  return (
+    <section id="about" className="py-24 px-4">
+      <div className="container max-w-6xl">
+        <h2 className="font-mono text-4xl md:text-5xl font-bold mb-4">
+          <span className="text-primary">&gt;</span> About Me
+        </h2>
+        <div className="w-16 h-1 bg-primary mb-12 rounded-full" />
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-6 text-foreground/80 leading-relaxed">
