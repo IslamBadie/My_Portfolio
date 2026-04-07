@@ -28,7 +28,7 @@ const ContactSection = () => {
             <Mail className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">Email Me</span>
           </a>
-          <a href="https://github.com/IslamBadie" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
+          <a href="https://github.com/IslamBadie" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-4 md:p-6 bg-card card-hover flex flex-col items-center gap-2 md:gap-3">
             <Github className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">GitHub</span>
           </a>
