@@ -17,7 +17,7 @@ const HeroSection = () => {
             <span className="w-2 h-4 bg-primary animate-blink" />
           </div>
 
-          <h1 className="font-mono font-bold text-5xl md:text-7xl text-foreground mb-6 tracking-tight">
+          <h1 className="font-mono font-bold text-3xl sm:text-5xl md:text-7xl text-foreground mb-4 md:mb-6 tracking-tight">
             Islam{" "}
             <span className="text-primary text-glow">Abdelbadie</span>
           </h1>
