@@ -13,7 +13,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4">
+    <section id="contact" className="py-16 md:py-24 px-5">
       <div className="container max-w-4xl text-center">
         <h2 className="font-mono text-4xl md:text-5xl font-bold mb-4">
           <span className="text-primary">&gt;</span> Get In Touch
