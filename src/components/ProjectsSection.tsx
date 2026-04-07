@@ -39,45 +39,46 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-16 md:py-24 px-5">
+    <section id="projects" className="py-16 md:py-24 px-4 sm:px-5">
       <div className="container max-w-6xl">
         <h2 className="font-mono text-2xl md:text-5xl font-bold mb-4">
           <span className="text-primary">&gt;</span> Projects & Work
         </h2>
-        <div className="w-16 h-1 bg-primary mb-12 rounded-full" />
+        <div className="w-16 h-1 bg-primary mb-8 md:mb-12 rounded-full" />
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {projects.map((project) => {
             const Icon = project.icon;
             return (
               <div
                 key={project.title}
-                className={`border border-border rounded-lg p-4 sm:p-6 bg-card card-hover ${
+                className={`border border-border rounded-lg p-3 sm:p-4 md:p-6 bg-card card-hover ${
                   project.featured ? "md:col-span-2" : ""
                 }`}
               >
                 {project.featured && (
-                  <div className="w-full h-40 sm:h-64 md:h-80 rounded-md border border-border mb-4 sm:mb-6 overflow-hidden">
+                  <div className="w-full h-32 sm:h-48 md:h-80 rounded-md border border-border mb-3 sm:mb-4 md:mb-6 overflow-hidden">
                     <img
                       src={projectScreenshot}
                       alt="Movie Application Screenshot"
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </div>
                 )}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-secondary border border-border shrink-0">
-                    <Icon className="w-6 h-6 text-primary" />
+                <div className="flex items-start gap-3">
+                  <div className="p-2 sm:p-3 rounded-lg bg-secondary border border-border shrink-0">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-mono text-base sm:text-xl font-bold text-foreground">{project.title}</h3>
-                    <p className="font-mono text-sm text-primary mt-1">{project.subtitle}</p>
-                    <p className="text-foreground/70 mt-3 text-sm leading-relaxed">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mt-4">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-mono text-sm sm:text-base md:text-xl font-bold text-foreground">{project.title}</h3>
+                    <p className="font-mono text-xs sm:text-sm text-primary mt-1">{project.subtitle}</p>
+                    <p className="text-foreground/70 mt-2 sm:mt-3 text-xs sm:text-sm leading-relaxed">{project.description}</p>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3 sm:mt-4">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 text-xs font-mono border border-border rounded-md bg-secondary text-muted-foreground"
+                          className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono border border-border rounded-md bg-secondary text-muted-foreground"
                         >
                           {tag}
                         </span>

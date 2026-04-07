@@ -1,7 +1,10 @@
 import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-5 pt-20 pb-20 overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]" style={{
@@ -53,10 +56,19 @@ const HeroSection = () => {
 
         <div className="relative group shrink-0">
           <div className="absolute -inset-2 rounded-full bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-500" />
+          {/* Skeleton placeholder */}
+          {!imageLoaded && (
+            <div className="relative w-52 h-52 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full border-2 border-primary/40 bg-secondary animate-pulse" />
+          )}
           <img
             src={profilePhoto}
             alt="Islam Mohamed Abdelbadie"
-            className="relative w-52 h-52 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full object-cover border-2 border-primary/40 shadow-2xl"
+            loading="eager"
+            decoding="async"
+            onLoad={() => setImageLoaded(true)}
+            className={`relative w-52 h-52 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full object-cover border-2 border-primary/40 shadow-2xl transition-opacity duration-500 ${
+              imageLoaded ? "opacity-100" : "opacity-0 absolute inset-0"
+            }`}
           />
         </div>
       </div>
