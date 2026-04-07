@@ -56,7 +56,7 @@ const HeroSection = () => {
           <img
             src={profilePhoto}
             alt="Islam Mohamed Abdelbadie"
-            className="relative w-52 h-52 md:w-64 md:h-64 rounded-full object-cover border-2 border-primary/40 shadow-2xl"
+            className="relative w-36 h-36 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full object-cover border-2 border-primary/40 shadow-2xl"
           />
         </div>
       </div>
