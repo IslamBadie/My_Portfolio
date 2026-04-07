@@ -13,9 +13,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4">
+    <section id="contact" className="py-16 md:py-24 px-5">
       <div className="container max-w-4xl text-center">
-        <h2 className="font-mono text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="font-mono text-3xl md:text-5xl font-bold mb-4">
           <span className="text-primary">&gt;</span> Get In Touch
         </h2>
         <div className="w-16 h-1 bg-primary mb-6 rounded-full mx-auto" />
@@ -23,16 +23,16 @@ const ContactSection = () => {
           Interested in working together or have a question? Let's connect.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-4 mb-12">
-          <a href="mailto:islambadea124@gmail.com" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
+        <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-12">
+          <a href="mailto:islambadea124@gmail.com" className="border border-border rounded-lg p-4 md:p-6 bg-card card-hover flex flex-col items-center gap-2 md:gap-3">
             <Mail className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">Email Me</span>
           </a>
-          <a href="https://github.com/IslamBadie" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
+          <a href="https://github.com/IslamBadie" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-4 md:p-6 bg-card card-hover flex flex-col items-center gap-2 md:gap-3">
             <Github className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">GitHub</span>
           </a>
-          <a href="https://www.linkedin.com/in/islam-abdelbadie" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
+          <a href="https://www.linkedin.com/in/islam-abdelbadie" target="_blank" rel="noopener noreferrer" className="border border-border rounded-lg p-4 md:p-6 bg-card card-hover flex flex-col items-center gap-2 md:gap-3">
             <Linkedin className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">LinkedIn</span>
           </a>

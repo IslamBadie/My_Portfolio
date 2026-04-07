@@ -9,9 +9,9 @@ const stats = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 px-4">
+    <section id="about" className="py-16 md:py-24 px-5">
       <div className="container max-w-6xl">
-        <h2 className="font-mono text-4xl md:text-5xl font-bold mb-4">
+        <h2 className="font-mono text-3xl md:text-5xl font-bold mb-4">
           <span className="text-primary">&gt;</span> About Me
         </h2>
         <div className="w-16 h-1 bg-primary mb-12 rounded-full" />
@@ -43,14 +43,14 @@ const AboutSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             {stats.map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
-                className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center text-center"
+                className="border border-border rounded-lg p-4 md:p-6 bg-card card-hover flex flex-col items-center text-center"
               >
                 <Icon className="w-8 h-8 text-primary mb-3" />
-                <span className="font-mono text-2xl font-bold text-foreground">{value}</span>
+                <span className="font-mono text-lg md:text-2xl font-bold text-foreground">{value}</span>
                 <span className="text-sm text-muted-foreground mt-1">{label}</span>
               </div>
             ))}
