@@ -3,7 +3,7 @@ import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-5 pt-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-5 pt-20 pb-20 overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `repeating-linear-gradient(0deg, hsl(217 91% 60%) 0px, transparent 1px, transparent 30px),
                           repeating-linear-gradient(90deg, hsl(217 91% 60%) 0px, transparent 1px, transparent 30px)`
@@ -35,16 +35,16 @@ const HeroSection = () => {
             مطور برمجيات شغوف ببناء تطبيقات عالية الأداء واستكشاف أحدث التقنيات
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-4">
+          <div className="flex flex-row items-center md:items-start justify-center md:justify-start gap-3">
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-3 bg-primary text-primary-foreground font-mono font-semibold rounded-md hover:shadow-[var(--glow-primary)] transition-all duration-300 hover:scale-105"
+              className="px-6 py-2.5 sm:px-8 sm:py-3 bg-primary text-primary-foreground font-mono text-sm font-semibold rounded-md hover:shadow-[var(--glow-primary)] transition-all duration-300 hover:scale-105"
             >
               Get In Touch
             </button>
             <button
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-3 border border-primary text-primary font-mono font-semibold rounded-md hover:bg-primary/10 transition-all duration-300"
+              className="px-6 py-2.5 sm:px-8 sm:py-3 border border-primary text-primary font-mono text-sm font-semibold rounded-md hover:bg-primary/10 transition-all duration-300"
             >
               View My Work
             </button>
@@ -56,14 +56,14 @@ const HeroSection = () => {
           <img
             src={profilePhoto}
             alt="Islam Mohamed Abdelbadie"
-            className="relative w-36 h-36 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full object-cover border-2 border-primary/40 shadow-2xl"
+            className="relative w-52 h-52 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full object-cover border-2 border-primary/40 shadow-2xl"
           />
         </div>
       </div>
 
       <button
         onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-        className="absolute bottom-8 text-primary animate-bounce"
+        className="absolute bottom-6 text-primary animate-bounce"
       >
         <ChevronDown className="w-6 h-6" />
       </button>

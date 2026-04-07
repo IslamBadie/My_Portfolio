@@ -70,7 +70,7 @@ const ProjectsSection = () => {
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-mono text-xl font-bold text-foreground">{project.title}</h3>
+                    <h3 className="font-mono text-base sm:text-xl font-bold text-foreground">{project.title}</h3>
                     <p className="font-mono text-sm text-primary mt-1">{project.subtitle}</p>
                     <p className="text-foreground/70 mt-3 text-sm leading-relaxed">{project.description}</p>
                     <div className="flex flex-wrap gap-2 mt-4">
