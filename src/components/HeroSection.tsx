@@ -11,7 +11,7 @@ const HeroSection = () => {
 
       <div className="relative z-10 flex flex-col-reverse md:flex-row items-center gap-6 md:gap-16 max-w-5xl mx-auto">
         <div className="text-center md:text-left flex-1">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-8 font-mono text-sm text-muted-foreground">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-secondary/50 mb-4 md:mb-8 font-mono text-xs sm:text-sm text-muted-foreground">
             <span className="text-primary">&gt;_</span>
             <span>$ whoami</span>
             <span className="w-2 h-4 bg-primary animate-blink" />

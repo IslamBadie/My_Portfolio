@@ -50,7 +50,7 @@ const AboutSection = () => {
                 className="border border-border rounded-lg p-4 md:p-6 bg-card card-hover flex flex-col items-center text-center"
               >
                 <Icon className="w-8 h-8 text-primary mb-3" />
-                <span className="font-mono text-2xl font-bold text-foreground">{value}</span>
+                <span className="font-mono text-lg md:text-2xl font-bold text-foreground">{value}</span>
                 <span className="text-sm text-muted-foreground mt-1">{label}</span>
               </div>
             ))}
