@@ -22,7 +22,7 @@ const HeroSection = () => {
             <span className="text-primary text-glow">Abdelbadie</span>
           </h1>
 
-          <p className="font-mono text-primary text-lg md:text-xl mb-6">
+          <p className="font-mono text-primary text-sm sm:text-lg md:text-xl mb-4 md:mb-6">
             Software Engineer · Flutter Developer · Tech Explorer
           </p>
 
