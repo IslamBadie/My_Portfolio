@@ -31,7 +31,7 @@ const HeroSection = () => {
             One line of code at a time.
           </p>
 
-          <p className="text-muted-foreground text-sm font-mono mb-10 max-w-lg" dir="rtl">
+          <p className="text-muted-foreground text-xs sm:text-sm font-mono mb-6 md:mb-10 max-w-lg" dir="rtl">
             مطور برمجيات شغوف ببناء تطبيقات عالية الأداء واستكشاف أحدث التقنيات
           </p>
 
