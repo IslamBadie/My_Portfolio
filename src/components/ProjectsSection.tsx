@@ -52,7 +52,7 @@ const ProjectsSection = () => {
             return (
               <div
                 key={project.title}
-                className={`border border-border rounded-lg p-6 bg-card card-hover ${
+                className={`border border-border rounded-lg p-4 sm:p-6 bg-card card-hover ${
                   project.featured ? "md:col-span-2" : ""
                 }`}
               >
