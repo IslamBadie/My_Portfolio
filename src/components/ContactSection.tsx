@@ -23,7 +23,7 @@ const ContactSection = () => {
           Interested in working together or have a question? Let's connect.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8 md:mb-12">
           <a href="mailto:islambadea124@gmail.com" className="border border-border rounded-lg p-6 bg-card card-hover flex flex-col items-center gap-3">
             <Mail className="w-6 h-6 text-primary" />
             <span className="text-sm text-foreground font-mono">Email Me</span>
