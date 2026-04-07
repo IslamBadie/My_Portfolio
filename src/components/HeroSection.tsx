@@ -3,7 +3,7 @@ import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-5 pt-20 overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `repeating-linear-gradient(0deg, hsl(217 91% 60%) 0px, transparent 1px, transparent 30px),
                           repeating-linear-gradient(90deg, hsl(217 91% 60%) 0px, transparent 1px, transparent 30px)`
