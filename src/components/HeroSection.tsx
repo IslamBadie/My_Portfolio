@@ -26,7 +26,7 @@ const HeroSection = () => {
             Software Engineer · Flutter Developer · Tech Explorer
           </p>
 
-          <p className="text-foreground/70 text-base md:text-lg max-w-xl mb-4 leading-relaxed">
+          <p className="text-foreground/70 text-sm sm:text-base md:text-lg max-w-xl mb-3 leading-relaxed">
             Building high-performance applications and exploring new technologies.
             One line of code at a time.
           </p>
