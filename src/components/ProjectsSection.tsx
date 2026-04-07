@@ -57,7 +57,7 @@ const ProjectsSection = () => {
                 }`}
               >
                 {project.featured && (
-                  <div className="w-full h-64 md:h-80 rounded-md border border-border mb-6 overflow-hidden">
+                  <div className="w-full h-40 sm:h-64 md:h-80 rounded-md border border-border mb-4 sm:mb-6 overflow-hidden">
                     <img
                       src={projectScreenshot}
                       alt="Movie Application Screenshot"
