@@ -43,7 +43,7 @@ const AboutSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             {stats.map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
