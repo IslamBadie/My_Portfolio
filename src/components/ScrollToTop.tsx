@@ -8,10 +8,10 @@ const ScrollToTop = () => {
     window.scrollTo({ top: 0, left: 0 });
   }, [pathname]);
 
-  // Also scroll to top on initial load / refresh
+  // On refresh: scroll to top smoothly
   useEffect(() => {
     window.history.scrollRestoration = "manual";
-    window.scrollTo({ top: 0, left: 0 });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return null;
