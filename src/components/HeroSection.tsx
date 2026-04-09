@@ -6,7 +6,7 @@ const HeroSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-5 pt-16 md:pt-20 pb-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col items-center md:justify-center px-5 pt-20 pb-20 overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: `repeating-linear-gradient(0deg, hsl(var(--primary)) 0px, transparent 1px, transparent 30px),
                           repeating-linear-gradient(90deg, hsl(var(--primary)) 0px, transparent 1px, transparent 30px)`
