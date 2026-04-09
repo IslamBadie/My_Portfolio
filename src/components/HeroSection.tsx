@@ -76,7 +76,7 @@ const HeroSection = () => {
 
       <button
         onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
-        className="absolute bottom-4 md:bottom-6 text-primary animate-bounce"
+        className="absolute bottom-10 md:bottom-6 text-primary animate-bounce"
       >
         <ChevronDown className="w-6 h-6" />
       </button>
