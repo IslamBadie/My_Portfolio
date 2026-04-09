@@ -6,6 +6,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <AnimatedSection delay={0.1}><ProjectsSection /></AnimatedSection>
       <AnimatedSection delay={0.1}><ContactSection /></AnimatedSection>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };
