@@ -63,8 +63,18 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="relative group shrink-0">
-          <div className="absolute -inset-2 rounded-full bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-500" />
+        <motion.div
+          className="relative group shrink-0"
+          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+        >
+          <motion.div
+            className="absolute -inset-2 rounded-full bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-500"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+          />
           <div className="relative w-52 h-52 md:w-64 md:h-64">
             <img
               src={profilePhoto}
@@ -75,7 +85,7 @@ const HeroSection = () => {
               className="w-full h-full rounded-full object-cover border-2 border-primary/40 shadow-2xl"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <button
