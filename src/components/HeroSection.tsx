@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
@@ -54,8 +55,28 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="relative group shrink-0">
-          <div className="absolute -inset-2 rounded-full bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-500" />
+        <motion.div
+          className="relative group shrink-0"
+          initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.3,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <motion.div
+            className="absolute -inset-2 rounded-full bg-primary/20 blur-xl group-hover:bg-primary/40 transition-colors duration-500"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+          />
+          <motion.div
+            className="absolute -inset-3 rounded-full border border-primary/20"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+          />
           <div className="relative w-52 h-52 md:w-64 md:h-64">
             {!imageLoaded && (
               <div className="absolute inset-0 rounded-full border-2 border-primary/40 bg-secondary animate-pulse" />
@@ -71,7 +92,7 @@ const HeroSection = () => {
               }`}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <button
