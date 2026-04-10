@@ -1,4 +1,5 @@
 import { Film, Brain, Shield, Search } from "lucide-react";
+import { motion } from "framer-motion";
 import projectScreenshot from "@/assets/project-screenshot.png";
 
 const projects = [
@@ -37,24 +38,58 @@ const projects = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
 const ProjectsSection = () => {
   return (
     <section id="projects" className="py-16 md:py-24 px-4 sm:px-5">
       <div className="container max-w-6xl">
-        <h2 className="font-mono text-2xl md:text-5xl font-bold mb-4">
+        <motion.h2
+          className="font-mono text-2xl md:text-5xl font-bold mb-4"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
           <span className="text-primary">&gt;</span> Projects & Work
-        </h2>
-        <div className="w-16 h-1 bg-primary mb-8 md:mb-12 rounded-full" />
+        </motion.h2>
+        <motion.div
+          className="w-16 h-1 bg-primary mb-8 md:mb-12 rounded-full"
+          initial={{ scaleX: 0, originX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        />
 
-        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+        <motion.div
+          className="grid md:grid-cols-2 gap-4 md:gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {projects.map((project) => {
             const Icon = project.icon;
             return (
-              <div
+              <motion.div
                 key={project.title}
                 className={`border border-border rounded-lg p-3 sm:p-4 md:p-6 bg-card card-hover ${
                   project.featured ? "md:col-span-2" : ""
                 }`}
+                variants={cardVariants}
               >
                 {project.featured && (
                   <div className="w-full h-32 sm:h-48 md:h-80 rounded-md border border-border mb-3 sm:mb-4 md:mb-6 overflow-hidden">
@@ -86,10 +121,10 @@ const ProjectsSection = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
