@@ -1,9 +1,16 @@
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
 import profilePhoto from "@/assets/profile-photo.png";
 
+// Preload the image immediately
+const preloadLink = document.createElement("link");
+preloadLink.rel = "preload";
+preloadLink.as = "image";
+preloadLink.href = profilePhoto;
+if (!document.head.querySelector(`link[href="${profilePhoto}"]`)) {
+  document.head.appendChild(preloadLink);
+}
+
 const HeroSection = () => {
-  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-5 pt-20 pb-20 overflow-hidden">
