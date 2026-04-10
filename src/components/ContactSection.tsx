@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Linkedin, Github, Send } from "lucide-react";
+import { motion } from "framer-motion";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -24,33 +25,80 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-16 md:py-24 px-5">
       <div className="container max-w-5xl text-center">
-        <h2 className="font-mono text-2xl md:text-5xl font-bold mb-4">
+        <motion.h2
+          className="font-mono text-2xl md:text-5xl font-bold mb-4"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
           <span className="text-primary">&gt;</span> Get In Touch
-        </h2>
-        <div className="w-16 h-1 bg-primary mb-6 rounded-full mx-auto" />
-        <p className="text-muted-foreground mb-8 md:mb-12 text-sm md:text-base">
+        </motion.h2>
+        <motion.div
+          className="w-16 h-1 bg-primary mb-6 rounded-full mx-auto"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+        />
+        <motion.p
+          className="text-muted-foreground mb-8 md:mb-12 text-sm md:text-base"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+        >
           Interested in working together or have a question? Let's connect.
-        </p>
+        </motion.p>
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
           {/* Left: Contact cards */}
-          <div className="flex flex-row md:flex-col gap-2 sm:gap-3 w-full md:w-auto md:min-w-[140px]">
-            <a href="mailto:islambadea124@gmail.com" className="flex-1 md:flex-none border border-border rounded-lg p-3 sm:p-4 bg-card card-hover flex flex-col items-center gap-1.5 sm:gap-2">
+          <motion.div
+            className="flex flex-row md:flex-col gap-2 sm:gap-3 w-full md:w-auto md:min-w-[140px]"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } } }}
+          >
+            <motion.a
+              href="mailto:islambadea124@gmail.com"
+              className="flex-1 md:flex-none border border-border rounded-lg p-3 sm:p-4 bg-card card-hover flex flex-col items-center gap-1.5 sm:gap-2"
+              variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } } }}
+            >
               <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               <span className="text-[10px] sm:text-xs md:text-sm text-foreground font-mono">Email</span>
-            </a>
-            <a href="https://github.com/IslamBadie" target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-none border border-border rounded-lg p-3 sm:p-4 bg-card card-hover flex flex-col items-center gap-1.5 sm:gap-2">
+            </motion.a>
+            <motion.a
+              href="https://github.com/IslamBadie"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 md:flex-none border border-border rounded-lg p-3 sm:p-4 bg-card card-hover flex flex-col items-center gap-1.5 sm:gap-2"
+              variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } } }}
+            >
               <Github className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               <span className="text-[10px] sm:text-xs md:text-sm text-foreground font-mono">GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/islam-abdelbadie" target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-none border border-border rounded-lg p-3 sm:p-4 bg-card card-hover flex flex-col items-center gap-1.5 sm:gap-2">
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/islam-abdelbadie"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 md:flex-none border border-border rounded-lg p-3 sm:p-4 bg-card card-hover flex flex-col items-center gap-1.5 sm:gap-2"
+              variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } } }}
+            >
               <Linkedin className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               <span className="text-[10px] sm:text-xs md:text-sm text-foreground font-mono">LinkedIn</span>
-            </a>
-          </div>
+            </motion.a>
+          </motion.div>
 
           {/* Right: Contact form */}
-          <form onSubmit={handleSubmit} className="text-left space-y-4 flex-1 w-full">
+          <motion.form
+            onSubmit={handleSubmit}
+            className="text-left space-y-4 flex-1 w-full"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
             <input
               type="text"
               placeholder="Your Name"
@@ -83,7 +131,7 @@ const ContactSection = () => {
               <Send className="w-4 h-4" />
               {sent ? "Opening Email Client!" : sending ? "Sending..." : "Send Message"}
             </button>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>
