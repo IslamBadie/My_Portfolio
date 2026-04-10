@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroSection = () => {
