@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import profilePhoto from "@/assets/profile-photo.png";
 
 // Preload the image immediately
 const preloadLink = document.createElement("link");
