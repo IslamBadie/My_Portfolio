@@ -64,18 +64,13 @@ const HeroSection = () => {
         <div className="relative group shrink-0">
           <div className="absolute -inset-2 rounded-full bg-primary/20 blur-xl group-hover:bg-primary/40 transition-all duration-500" />
           <div className="relative w-52 h-52 md:w-64 md:h-64">
-            {!imageLoaded && (
-              <div className="absolute inset-0 rounded-full border-2 border-primary/40 bg-secondary animate-pulse" />
-            )}
             <img
               src={profilePhoto}
               alt="Islam Mohamed Abdelbadie"
               loading="eager"
-              decoding="async"
-              onLoad={() => setImageLoaded(true)}
-              className={`w-full h-full rounded-full object-cover border-2 border-primary/40 shadow-2xl transition-opacity duration-500 ${
-                imageLoaded ? "opacity-100" : "opacity-0"
-              }`}
+              decoding="sync"
+              fetchPriority="high"
+              className="w-full h-full rounded-full object-cover border-2 border-primary/40 shadow-2xl"
             />
           </div>
         </div>
