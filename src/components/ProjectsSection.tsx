@@ -86,10 +86,12 @@ const ProjectsSection = () => {
             return (
               <motion.div
                 key={project.title}
-                className={`border border-border rounded-lg p-3 sm:p-4 md:p-6 bg-card card-hover ${
+                className={`border border-border rounded-lg p-3 sm:p-4 md:p-6 bg-card card-hover group ${
                   project.featured ? "md:col-span-2" : ""
                 }`}
                 variants={cardVariants}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 {project.featured && (
                   <div className="w-full h-32 sm:h-48 md:h-80 rounded-md border border-border mb-3 sm:mb-4 md:mb-6 overflow-hidden">
@@ -97,23 +99,23 @@ const ProjectsSection = () => {
                       src={projectScreenshot}
                       alt="Movie Application Screenshot"
                       loading="lazy"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                 )}
                 <div className="flex items-start gap-3">
-                  <div className="p-2 sm:p-3 rounded-lg bg-secondary border border-border shrink-0">
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                  <div className="p-2 sm:p-3 rounded-lg bg-secondary border border-border shrink-0 transition-all duration-300 group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:shadow-[0_0_15px_hsl(217_91%_60%/0.15)]">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-mono text-sm sm:text-base md:text-xl font-bold text-foreground">{project.title}</h3>
+                    <h3 className="font-mono text-sm sm:text-base md:text-xl font-bold text-foreground transition-colors duration-300 group-hover:text-primary">{project.title}</h3>
                     <p className="font-mono text-xs sm:text-sm text-primary mt-1">{project.subtitle}</p>
                     <p className="text-foreground/70 mt-2 sm:mt-3 text-xs sm:text-sm leading-relaxed">{project.description}</p>
                     <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-3 sm:mt-4">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono border border-border rounded-md bg-secondary text-muted-foreground"
+                          className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono border border-border rounded-md bg-secondary text-muted-foreground transition-all duration-300 group-hover:border-primary/30 group-hover:text-primary/80"
                         >
                           {tag}
                         </span>
