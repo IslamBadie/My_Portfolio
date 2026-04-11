@@ -91,18 +91,22 @@ const SkillsSection = () => {
           {skillCategories.map((cat) => (
             <motion.div
               key={cat.title}
-              className="border border-border rounded-lg p-6 bg-card card-hover"
+              className="border border-border rounded-lg p-6 bg-card card-hover group"
               variants={cardVariants}
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <h3 className="font-mono text-sm font-bold text-primary mb-4 tracking-widest">
+              <h3 className="font-mono text-sm font-bold text-primary mb-4 tracking-widest transition-all duration-300 group-hover:tracking-[0.2em]">
                 {cat.title}
               </h3>
               <motion.div className="flex flex-wrap gap-2" variants={cardVariants}>
                 {cat.skills.map((skill) => (
                   <motion.span
                     key={skill}
-                    className="px-3 py-1.5 text-sm font-mono border border-border rounded-md bg-secondary text-foreground hover:border-primary/50 hover:text-primary transition-colors duration-200"
+                    className="px-3 py-1.5 text-sm font-mono border border-border rounded-md bg-secondary text-foreground transition-all duration-300 cursor-default hover:border-primary hover:text-primary hover:bg-primary/10 hover:shadow-[0_0_12px_hsl(217_91%_60%/0.2)]"
                     variants={skillVariants}
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
                   >
                     {skill}
                   </motion.span>
