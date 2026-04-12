@@ -8,6 +8,10 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center px-5 pt-20 pb-20 overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `repeating-linear-gradient(0deg, hsl(var(--primary)) 0px, transparent 1px, transparent 30px),
+                          repeating-linear-gradient(90deg, hsl(var(--primary)) 0px, transparent 1px, transparent 30px)`
+      }} />
 
       <div className="relative z-10 flex flex-col-reverse md:flex-row items-center gap-6 md:gap-16 max-w-5xl mx-auto">
         <div className="text-center md:text-left flex-1">

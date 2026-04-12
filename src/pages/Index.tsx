@@ -7,12 +7,11 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
-import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen relative">
-      <AnimatedGridBackground />
+    <div className="min-h-screen">
+      <Navbar />
       <HeroSection />
       <AnimatedSection><AboutSection /></AnimatedSection>
       <AnimatedSection delay={0.1}><SkillsSection /></AnimatedSection>
