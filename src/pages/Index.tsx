@@ -7,10 +7,12 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import StarfieldBackground from "@/components/StarfieldBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <StarfieldBackground />
       <Navbar />
       <HeroSection />
       <AnimatedSection><AboutSection /></AnimatedSection>
