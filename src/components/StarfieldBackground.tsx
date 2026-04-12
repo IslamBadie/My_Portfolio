@@ -90,8 +90,9 @@ const StarfieldBackground = () => {
         if (sx < -10 || sx > w + 10 || sy < -10 || sy > h + 10) continue;
 
         const depth = 1 - star.z / MAX_DEPTH;
-        const alpha = depth * 0.7 * (0.5 + star.brightness * 0.5);
-        const radius = star.size * depth * 1.8;
+        const twinkle = depth > 0.5 ? 0.6 + 0.4 * Math.sin(time * star.twinkleSpeed + star.twinkleOffset) : 1;
+        const alpha = depth * 0.7 * (0.5 + star.brightness * 0.5) * twinkle;
+        const radius = star.size * depth * 1.8 * (depth > 0.6 ? 0.85 + 0.15 * Math.sin(time * star.twinkleSpeed * 1.5 + star.twinkleOffset) : 1);
 
         // Draw trail
         if (star.prevX && star.prevY) {
