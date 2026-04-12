@@ -28,7 +28,7 @@ const StarfieldBackground = () => {
       const x = (Math.random() - 0.5) * width * 2;
       const y = (Math.random() - 0.5) * height * 2;
       const z = Math.random() * MAX_DEPTH;
-      stars.push({ x, y, z, prevX: 0, prevY: 0, size: Math.random() * 1.5 + 0.5, brightness: Math.random() });
+      stars.push({ x, y, z, prevX: 0, prevY: 0, size: Math.random() * 1.5 + 0.5, brightness: Math.random(), twinkleSpeed: Math.random() * 3 + 1, twinkleOffset: Math.random() * Math.PI * 2 });
     }
     starsRef.current = stars;
   }, []);
