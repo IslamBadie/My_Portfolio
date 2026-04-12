@@ -12,6 +12,17 @@ interface Star {
   twinkleOffset: number;
 }
 
+interface ShootingStar {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  maxLife: number;
+  size: number;
+  trail: { x: number; y: number }[];
+}
+
 const STAR_COUNT = 800;
 const MAX_DEPTH = 1000;
 const SPEED = 0.5;
@@ -19,8 +30,10 @@ const SPEED = 0.5;
 const StarfieldBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starsRef = useRef<Star[]>([]);
+  const shootingStarsRef = useRef<ShootingStar[]>([]);
   const mouseRef = useRef({ x: 0, y: 0 });
   const animFrameRef = useRef<number>(0);
+  const nextShootRef = useRef(2 + Math.random() * 3);
 
   const initStars = useCallback((width: number, height: number) => {
     const stars: Star[] = [];
@@ -33,6 +46,29 @@ const StarfieldBackground = () => {
     starsRef.current = stars;
   }, []);
 
+  const spawnShootingStar = useCallback((w: number, h: number) => {
+    const side = Math.random();
+    let x: number, y: number;
+    if (side < 0.5) {
+      x = Math.random() * w;
+      y = -10;
+    } else {
+      x = w + 10;
+      y = Math.random() * h * 0.5;
+    }
+    const angle = Math.PI * 0.6 + Math.random() * 0.4;
+    const speed = 8 + Math.random() * 6;
+    shootingStarsRef.current.push({
+      x, y,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      life: 0,
+      maxLife: 40 + Math.random() * 30,
+      size: 1.5 + Math.random() * 1.5,
+      trail: [],
+    });
+  }, []);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -42,9 +78,7 @@ const StarfieldBackground = () => {
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      if (starsRef.current.length === 0) {
-        initStars(canvas.width, canvas.height);
-      }
+      if (starsRef.current.length === 0) initStars(canvas.width, canvas.height);
     };
     resize();
     window.addEventListener("resize", resize);
@@ -68,13 +102,13 @@ const StarfieldBackground = () => {
 
       ctx.clearRect(0, 0, w, h);
 
+      // --- Stars ---
       const stars = starsRef.current;
       const mx = mouseRef.current.x * 30;
       const my = mouseRef.current.y * 30;
 
       for (let i = 0; i < stars.length; i++) {
         const star = stars[i];
-
         star.z -= SPEED;
         if (star.z <= 0) {
           star.z = MAX_DEPTH;
@@ -86,7 +120,6 @@ const StarfieldBackground = () => {
         const k = 300 / star.z;
         const sx = star.x * k + cx + mx * (1 - star.z / MAX_DEPTH);
         const sy = star.y * k + cy + my * (1 - star.z / MAX_DEPTH);
-
         if (sx < -10 || sx > w + 10 || sy < -10 || sy > h + 10) continue;
 
         const depth = 1 - star.z / MAX_DEPTH;
@@ -94,38 +127,80 @@ const StarfieldBackground = () => {
         const alpha = depth * 0.7 * (0.5 + star.brightness * 0.5) * twinkle;
         const radius = star.size * depth * 1.8 * (depth > 0.6 ? 0.85 + 0.15 * Math.sin(time * star.twinkleSpeed * 1.5 + star.twinkleOffset) : 1);
 
-        // Draw trail
         if (star.prevX && star.prevY) {
-          const trailAlpha = alpha * 0.3;
           ctx.beginPath();
           ctx.moveTo(star.prevX, star.prevY);
           ctx.lineTo(sx, sy);
-          ctx.strokeStyle = light
-            ? `rgba(59, 130, 246, ${trailAlpha})`
-            : `rgba(147, 197, 253, ${trailAlpha})`;
+          ctx.strokeStyle = light ? `rgba(59,130,246,${alpha * 0.3})` : `rgba(147,197,253,${alpha * 0.3})`;
           ctx.lineWidth = radius * 0.5;
           ctx.stroke();
         }
 
-        // Draw star
         ctx.beginPath();
         ctx.arc(sx, sy, radius, 0, Math.PI * 2);
-        
         if (light) {
-          ctx.fillStyle = `rgba(59, 130, 246, ${alpha * 0.8})`;
+          ctx.fillStyle = `rgba(59,130,246,${alpha * 0.8})`;
         } else {
-          ctx.fillStyle = `rgba(200, 220, 255, ${alpha})`;
-          // Glow for bright close stars
+          ctx.fillStyle = `rgba(200,220,255,${alpha})`;
           if (depth > 0.7 && star.brightness > 0.7) {
             ctx.shadowBlur = radius * 4;
-            ctx.shadowColor = `rgba(147, 197, 253, ${alpha * 0.5})`;
+            ctx.shadowColor = `rgba(147,197,253,${alpha * 0.5})`;
           }
         }
         ctx.fill();
         ctx.shadowBlur = 0;
-
         star.prevX = sx;
         star.prevY = sy;
+      }
+
+      // --- Shooting Stars ---
+      nextShootRef.current -= 0.016;
+      if (nextShootRef.current <= 0) {
+        spawnShootingStar(w, h);
+        nextShootRef.current = 3 + Math.random() * 5;
+      }
+
+      const shoots = shootingStarsRef.current;
+      for (let i = shoots.length - 1; i >= 0; i--) {
+        const s = shoots[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.life++;
+        s.trail.push({ x: s.x, y: s.y });
+        if (s.trail.length > 20) s.trail.shift();
+
+        const progress = s.life / s.maxLife;
+        const fadeIn = Math.min(s.life / 5, 1);
+        const fadeOut = progress > 0.6 ? 1 - (progress - 0.6) / 0.4 : 1;
+        const opacity = fadeIn * fadeOut;
+
+        if (s.trail.length > 1) {
+          for (let j = 1; j < s.trail.length; j++) {
+            const t = j / s.trail.length;
+            const a = opacity * t * 0.8;
+            const lw = s.size * t;
+            ctx.beginPath();
+            ctx.moveTo(s.trail[j - 1].x, s.trail[j - 1].y);
+            ctx.lineTo(s.trail[j].x, s.trail[j].y);
+            ctx.strokeStyle = light ? `rgba(59,130,246,${a})` : `rgba(180,210,255,${a})`;
+            ctx.lineWidth = lw;
+            ctx.lineCap = "round";
+            ctx.stroke();
+          }
+        }
+
+        // Head glow
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.size * 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = light ? `rgba(59,130,246,${opacity})` : `rgba(220,235,255,${opacity})`;
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = light ? `rgba(59,130,246,${opacity * 0.6})` : `rgba(147,197,253,${opacity * 0.8})`;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        if (s.life >= s.maxLife || s.x < -50 || s.x > w + 50 || s.y > h + 50) {
+          shoots.splice(i, 1);
+        }
       }
 
       animFrameRef.current = requestAnimationFrame(animate);
@@ -138,7 +213,7 @@ const StarfieldBackground = () => {
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animFrameRef.current);
     };
-  }, [initStars]);
+  }, [initStars, spawnShootingStar]);
 
   return (
     <canvas
