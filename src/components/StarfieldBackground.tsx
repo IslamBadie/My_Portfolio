@@ -8,9 +8,11 @@ interface Star {
   prevY: number;
   size: number;
   brightness: number;
+  twinkleSpeed: number;
+  twinkleOffset: number;
 }
 
-const STAR_COUNT = 400;
+const STAR_COUNT = 800;
 const MAX_DEPTH = 1000;
 const SPEED = 0.5;
 
@@ -26,7 +28,7 @@ const StarfieldBackground = () => {
       const x = (Math.random() - 0.5) * width * 2;
       const y = (Math.random() - 0.5) * height * 2;
       const z = Math.random() * MAX_DEPTH;
-      stars.push({ x, y, z, prevX: 0, prevY: 0, size: Math.random() * 1.5 + 0.5, brightness: Math.random() });
+      stars.push({ x, y, z, prevX: 0, prevY: 0, size: Math.random() * 1.5 + 0.5, brightness: Math.random(), twinkleSpeed: Math.random() * 3 + 1, twinkleOffset: Math.random() * Math.PI * 2 });
     }
     starsRef.current = stars;
   }, []);
@@ -55,7 +57,9 @@ const StarfieldBackground = () => {
 
     const isLight = () => document.documentElement.classList.contains("light");
 
+    let time = 0;
     const animate = () => {
+      time += 0.016;
       const w = canvas.width;
       const h = canvas.height;
       const cx = w / 2;
@@ -86,8 +90,9 @@ const StarfieldBackground = () => {
         if (sx < -10 || sx > w + 10 || sy < -10 || sy > h + 10) continue;
 
         const depth = 1 - star.z / MAX_DEPTH;
-        const alpha = depth * 0.7 * (0.5 + star.brightness * 0.5);
-        const radius = star.size * depth * 1.8;
+        const twinkle = depth > 0.5 ? 0.6 + 0.4 * Math.sin(time * star.twinkleSpeed + star.twinkleOffset) : 1;
+        const alpha = depth * 0.7 * (0.5 + star.brightness * 0.5) * twinkle;
+        const radius = star.size * depth * 1.8 * (depth > 0.6 ? 0.85 + 0.15 * Math.sin(time * star.twinkleSpeed * 1.5 + star.twinkleOffset) : 1);
 
         // Draw trail
         if (star.prevX && star.prevY) {
