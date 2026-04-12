@@ -8,9 +8,11 @@ interface Star {
   prevY: number;
   size: number;
   brightness: number;
+  twinkleSpeed: number;
+  twinkleOffset: number;
 }
 
-const STAR_COUNT = 400;
+const STAR_COUNT = 800;
 const MAX_DEPTH = 1000;
 const SPEED = 0.5;
 
