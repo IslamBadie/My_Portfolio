@@ -60,6 +60,8 @@ const StarfieldBackground = () => {
     let time = 0;
     const animate = () => {
       time += 0.016;
+      const w = canvas.width;
+      const h = canvas.height;
       const cx = w / 2;
       const cy = h / 2;
       const light = isLight();
