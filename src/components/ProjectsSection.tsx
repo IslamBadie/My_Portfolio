@@ -1,6 +1,7 @@
 import { Film, Brain, Shield, Search } from "lucide-react";
 import { motion } from "framer-motion";
 import projectScreenshot from "@/assets/project-screenshot.png";
+import GlassCard from "./GlassCard";
 
 const projects = [
   {
@@ -84,17 +85,16 @@ const ProjectsSection = () => {
           {projects.map((project) => {
             const Icon = project.icon;
             return (
-              <motion.div
+              <GlassCard
                 key={project.title}
-                className={`border border-border rounded-lg p-3 sm:p-4 md:p-6 bg-card card-hover group ${
-                  project.featured ? "md:col-span-2" : ""
-                }`}
+                gradientBorder
+                className={project.featured ? "md:col-span-2" : ""}
                 variants={cardVariants}
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 {project.featured && (
-                  <div className="w-full h-32 sm:h-48 md:h-80 rounded-md border border-border mb-3 sm:mb-4 md:mb-6 overflow-hidden">
+                  <div className="w-full h-32 sm:h-48 md:h-80 rounded-md border border-border/50 mb-3 sm:mb-4 md:mb-6 overflow-hidden">
                     <img
                       src={projectScreenshot}
                       alt="Movie Application Screenshot"
@@ -104,7 +104,7 @@ const ProjectsSection = () => {
                   </div>
                 )}
                 <div className="flex items-start gap-3">
-                  <div className="p-2 sm:p-3 rounded-lg bg-secondary border border-border shrink-0 transition-all duration-300 group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:shadow-[0_0_15px_hsl(217_91%_60%/0.15)]">
+                  <div className="p-2 sm:p-3 rounded-lg bg-secondary/50 backdrop-blur-sm border border-border/50 shrink-0 transition-all duration-300 group-hover:border-primary/50 group-hover:bg-primary/10 group-hover:shadow-[0_0_15px_hsl(217_91%_60%/0.15)]">
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary transition-transform duration-300 group-hover:scale-110" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -115,7 +115,7 @@ const ProjectsSection = () => {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono border border-border rounded-md bg-secondary text-muted-foreground transition-all duration-300 group-hover:border-primary/30 group-hover:text-primary/80"
+                          className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-mono border border-border/50 rounded-md bg-secondary/50 backdrop-blur-sm text-muted-foreground transition-all duration-300 group-hover:border-primary/30 group-hover:text-primary/80"
                         >
                           {tag}
                         </span>
@@ -123,7 +123,7 @@ const ProjectsSection = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </GlassCard>
             );
           })}
         </motion.div>
