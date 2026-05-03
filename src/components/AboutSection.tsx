@@ -1,5 +1,6 @@
 import { Code2, Smartphone, Brain, Layers } from "lucide-react";
 import { motion } from "framer-motion";
+import GlassCard from "./GlassCard";
 
 const stats = [
   { icon: Code2, value: "Flutter", label: "Primary Stack" },
@@ -70,18 +71,20 @@ const AboutSection = () => {
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1, delayChildren: 0.4 } } }}
           >
             {stats.map(({ icon: Icon, value, label }) => (
-              <motion.div
+              <GlassCard
                 key={label}
-                className="border border-border rounded-lg p-4 md:p-6 bg-card card-hover flex flex-col items-center text-center"
+                gradientBorder
                 variants={{
                   hidden: { opacity: 0, y: 30, scale: 0.9 },
                   visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
                 }}
               >
-                <Icon className="w-8 h-8 text-primary mb-3" />
-                <span className="font-mono text-lg md:text-2xl font-bold text-foreground">{value}</span>
-                <span className="text-sm text-muted-foreground mt-1">{label}</span>
-              </motion.div>
+                <div className="flex flex-col items-center text-center">
+                  <Icon className="w-8 h-8 text-primary mb-3" />
+                  <span className="font-mono text-lg md:text-2xl font-bold text-foreground">{value}</span>
+                  <span className="text-sm text-muted-foreground mt-1">{label}</span>
+                </div>
+              </GlassCard>
             ))}
           </motion.div>
         </div>

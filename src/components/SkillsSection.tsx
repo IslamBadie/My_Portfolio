@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import GlassCard from "./GlassCard";
 
 const skillCategories = [
   {
@@ -29,11 +30,7 @@ const skillCategories = [
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
+  visible: { transition: { staggerChildren: 0.12 } },
 };
 
 const cardVariants = {
@@ -53,11 +50,7 @@ const cardVariants = {
 
 const skillVariants = {
   hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.3, ease: "easeOut" },
-  },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: "easeOut" } },
 };
 
 const SkillsSection = () => {
@@ -89,9 +82,9 @@ const SkillsSection = () => {
           viewport={{ once: true, margin: "-50px" }}
         >
           {skillCategories.map((cat) => (
-            <motion.div
+            <GlassCard
               key={cat.title}
-              className="border border-border rounded-lg p-6 bg-card card-hover group"
+              gradientBorder
               variants={cardVariants}
               whileHover={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -103,7 +96,7 @@ const SkillsSection = () => {
                 {cat.skills.map((skill) => (
                   <motion.span
                     key={skill}
-                    className="px-3 py-1.5 text-sm font-mono border border-border rounded-md bg-secondary text-foreground transition-all duration-300 cursor-default hover:border-primary hover:text-primary hover:bg-primary/10 hover:shadow-[0_0_12px_hsl(217_91%_60%/0.2)]"
+                    className="px-3 py-1.5 text-sm font-mono border border-border/50 rounded-md bg-secondary/50 backdrop-blur-sm text-foreground transition-all duration-300 cursor-default hover:border-primary hover:text-primary hover:bg-primary/10 hover:shadow-[0_0_12px_hsl(217_91%_60%/0.2)]"
                     variants={skillVariants}
                     whileHover={{ scale: 1.08, y: -2 }}
                     transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -112,7 +105,7 @@ const SkillsSection = () => {
                   </motion.span>
                 ))}
               </motion.div>
-            </motion.div>
+            </GlassCard>
           ))}
         </motion.div>
       </div>
