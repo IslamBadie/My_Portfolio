@@ -2,7 +2,6 @@ import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
-import TypewriterText from "./TypewriterText";
 
 const HeroSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -43,14 +42,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
-            <TypewriterText
-              texts={[
-                "Software Engineer",
-                "Flutter Developer",
-                "Tech Explorer",
-                "Mobile App Builder",
-              ]}
-            />
+            Software Engineer · Flutter Developer · Tech Explorer
           </motion.p>
 
           <motion.p
@@ -81,13 +73,13 @@ const HeroSection = () => {
           >
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="group relative px-6 py-2.5 sm:px-8 sm:py-3 bg-primary text-primary-foreground font-mono text-sm font-semibold rounded-md transition-all duration-300 hover:scale-105 hover:shadow-[0_0_25px_hsl(var(--primary)/0.5)] overflow-hidden"
+              className="px-6 py-2.5 sm:px-8 sm:py-3 bg-primary text-primary-foreground font-mono text-sm font-semibold rounded-md hover:shadow-[var(--glow-primary)] transition-all duration-300 hover:scale-105"
             >
               Get In Touch
             </button>
             <button
               onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-6 py-2.5 sm:px-8 sm:py-3 border border-primary text-primary font-mono text-sm font-semibold rounded-md hover:bg-primary/10 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)] transition-all duration-300 hover:scale-105"
+              className="px-6 py-2.5 sm:px-8 sm:py-3 border border-primary text-primary font-mono text-sm font-semibold rounded-md hover:bg-primary/10 transition-all duration-300"
             >
               View My Work
             </button>
