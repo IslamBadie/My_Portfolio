@@ -5,7 +5,7 @@ import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import AnimatedSection from "@/components/AnimatedSection";
+import ParallaxSection from "@/components/ParallaxSection";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import StarfieldBackground from "@/components/StarfieldBackground";
 
@@ -15,10 +15,10 @@ const Index = () => {
       <StarfieldBackground />
       <Navbar />
       <HeroSection />
-      <AnimatedSection><AboutSection /></AnimatedSection>
-      <AnimatedSection delay={0.1}><SkillsSection /></AnimatedSection>
-      <AnimatedSection delay={0.1}><ProjectsSection /></AnimatedSection>
-      <AnimatedSection delay={0.1}><ContactSection /></AnimatedSection>
+      <ParallaxSection speed={0.2}><AboutSection /></ParallaxSection>
+      <ParallaxSection speed={0.3} delay={0.1}><SkillsSection /></ParallaxSection>
+      <ParallaxSection speed={0.25} delay={0.1}><ProjectsSection /></ParallaxSection>
+      <ParallaxSection speed={0.2} delay={0.1}><ContactSection /></ParallaxSection>
       <Footer />
       <ScrollToTopButton />
     </div>
